@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9edf451-08bb-4dce-974d-30ae7552818a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="dataset1" uuid="a0876f77-19fb-4672-942d-7e19400a8f79"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from custodia_muestra where numregistro = '$P!{parameter1}']]>
+	</queryString>
+	<field name="numregistro" class="java.lang.String"/>
+	<field name="empresa" class="java.lang.String"/>
+	<field name="solicitante" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
+	<field name="municipio" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="nitcc" class="java.lang.String"/>
+	<field name="medio_recep" class="java.lang.String"/>
+	<field name="fecha_recep" class="java.lang.String"/>
+	<field name="cargo_lab" class="java.lang.String"/>
+	<field name="hora_recep" class="java.lang.String"/>
+	<field name="total_muestra" class="java.lang.String"/>
+	<field name="preservacion" class="java.lang.String"/>
+	<field name="descrip" class="java.lang.String"/>
+	<field name="recibio_muestra" class="java.lang.String"/>
+	<field name="obs_adicionales" class="java.lang.String"/>
+	<field name="area_evaluada" class="java.lang.String"/>
+	<field name="vereda" class="java.lang.String"/>
+	<field name="num_muestra" class="java.lang.String"/>
+	<field name="codigo_muestra" class="java.lang.String"/>
+	<field name="punto_muest" class="java.lang.String"/>
+	<field name="repons_toma" class="java.lang.String"/>
+	<field name="fecha_recolec" class="java.lang.String"/>
+	<field name="hora_recolec" class="java.lang.String"/>
+	<field name="tipo_muestra" class="java.lang.String"/>
+	<field name="volumen_muestra" class="java.lang.String"/>
+	<field name="analisis" class="java.lang.String"/>
+	<field name="obsmuestra" class="java.lang.String"/>
+	<field name="num_custodia" class="java.lang.String"/>
+	<field name="num_referencia" class="java.lang.String"/>
+	<field name="fecha_reporte" class="java.lang.String"/>
+	<field name="fecha_entrega_aprox" class="java.lang.String"/>
+	<field name="medio_entrega_repor" class="java.lang.String"/>
+	<field name="num_reporte" class="java.lang.String"/>
+	<field name="recib_report" class="java.lang.String"/>
+	<field name="fecha_entrega" class="java.lang.String"/>
+	<field name="obs" class="java.lang.String"/>
+	<field name="entregado" class="java.lang.String"/>
+	<field name="fecha_eliminacion" class="java.lang.String"/>
+	<field name="estado_cuenta" class="java.lang.String"/>
+	<field name="entrega_repor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="61" width="122" height="28" uuid="e3e015d7-86b5-4b1f-9534-82943f2584c8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="114" y="0" width="317" height="49" uuid="c5abc9a2-454e-4710-bf85-a97ffb4cabf1"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTRO CUSTODIA DE MUESTRAS
+LABORATORIO FISICOQUÍMICO Y MICROBIOLÓGICO
+CGAO-REGIONAL SANTANDER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="61" width="122" height="26" uuid="8317cdff-edd1-4d9e-91b1-76e001e008a6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[REGISTRO No. 
+(asignado por laboratorio)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="0" width="124" height="32" uuid="3edf7e55-ef35-4ba0-a1ff-82da80c4f487"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Versión: 01
+Código: LFQM-OP-F-26
+Fecha de vigencia: 2017-06-08]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="123" y="61" width="100" height="28" uuid="c56dc8f4-18ef-439b-b7c6-20478b71e9df"/>
+			</rectangle>
+			<textField>
+				<reportElement x="139" y="61" width="83" height="28" uuid="1ebcb11e-1882-42cc-8f0a-1cbb20a5538d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numregistro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="530" y="33" width="14" height="17" uuid="da656c3a-ff78-4888-8c15-e5542019b820"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="516" y="33" width="14" height="16" uuid="453dee96-f4a1-4048-bcf8-1c2ecbf0d5f3"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="544" y="33" width="13" height="16" uuid="489a1ec0-17f2-4122-b0a5-a5b495a2709c"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="488" y="33" width="28" height="16" uuid="728b7776-a2b0-4a60-9a32-cd4bd598ed05"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Página]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="3" width="72" height="47" uuid="f01d7dca-156f-46b0-9e14-d49826a323d0"/>
+				<imageExpression><![CDATA[$P{parameter2}+"\\reportes\\logosena.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="713" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="540" width="277" height="14" uuid="06804a0a-fcb6-4b5e-b1c9-03b5ab563bb1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="358" y="454" width="78" height="27" uuid="096c8edd-8a7c-45e3-a8d1-503fb9c621f7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="358" y="481" width="78" height="25" uuid="9852d0bf-b79c-46e3-a3fd-b67d3719f9b7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="454" width="123" height="27" uuid="bc42e915-0ac9-405c-a262-852dbced1a49"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="316" width="555" height="40" uuid="77ab08f2-ca2a-4f54-8460-828db8a9d518"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="356" width="555" height="77" uuid="363b1717-388c-4b3b-89d4-b082f89f6646"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="284" width="76" height="32" uuid="4c445914-03a7-417c-85db-f86295a162bf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="290" y="191" width="104" height="35" uuid="8308a777-ab4b-48cd-b36a-6954c791747b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="295" y="108" width="79" height="27" uuid="4fc7edfb-bd81-479c-9d2b-b093e32f8472"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="295" y="83" width="79" height="26" uuid="ab8aa62d-0cc5-4084-9d47-637caac67321"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="308" y="109" width="66" height="26" uuid="06e86fc5-ca99-454c-93b1-9eedb43ec160"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correo electrónico:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="84" width="66" height="25" uuid="a46c44ca-7dae-4da3-bfc0-ef0d4a027f3f"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Teléfono/Fax:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="295" y="59" width="79" height="24" uuid="d02aa823-cc73-41b0-add3-49d2f93eca72"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="295" y="33" width="79" height="26" uuid="e5c2c909-fbf6-4f92-8cb0-58acdab2c4c5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="108" width="123" height="27" uuid="fba6e645-6f4f-4e6d-b346-e9673e8a4e4e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="83" width="123" height="26" uuid="d35c3970-21ba-4fdc-968a-0b200624c251"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="33" width="123" height="26" uuid="5b3ff1cc-e9b1-45a0-abda-3f5845e8ac9e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="135" width="555" height="21" uuid="fac22dc4-92df-42c5-bdeb-56136c7088ab"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="33" width="113" height="26" uuid="5867fb33-0f2c-4742-9211-6e197b4c8bef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Empresa /
+Razón social:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="33" width="66" height="26" uuid="dcdabd9f-3f29-4094-968f-f61feae76dfc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nit ó CC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="135" width="524" height="21" backcolor="#CCCCCC" uuid="d2a2ee34-eb4a-4c4c-b0a6-41d4f4085ffb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACIÓN DE LAS MUESTRAS]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="123" y="33" width="172" height="26" uuid="81528e46-4695-41dd-ad58-1d849e83784a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="59" width="123" height="24" uuid="b148fa9e-d638-4522-9768-595149ca4dc6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="59" width="112" height="24" uuid="dadeb776-cd9c-43cc-b0ad-74d0fddd3d89"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Solicitante :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="83" width="113" height="26" uuid="4e22f749-de96-422b-b9af-ed388d307533"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dirección de
+correspondencia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="109" width="113" height="26" uuid="3605954a-5e7d-469c-8a19-3bdf62cae3b4"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Municipio /
+Departamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="59" width="66" height="24" uuid="10fd99ce-3995-4aba-8b6c-ff2958b98ccf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cargo:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="123" y="59" width="172" height="24" uuid="e5b397a5-9747-4180-83f7-aa752452b46d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="123" y="83" width="172" height="26" uuid="a11d800c-d226-4d91-8ff9-b67beaf23721"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="374" y="33" width="181" height="26" uuid="13159ed5-799c-4f55-b3e4-9f7bca4d605d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="374" y="59" width="181" height="24" uuid="1ca4593b-3e8d-4f0d-9445-a8598d81f864"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="374" y="108" width="181" height="27" uuid="df709ac7-fdfd-4701-ad2f-7cde7e29059d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="374" y="83" width="181" height="26" uuid="a75526b0-4a1c-4efe-84c4-a44ac8cfcbe7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="156" width="76" height="35" uuid="50314c90-f78d-4fe1-ac40-ef7f993f79a2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="76" y="156" width="298" height="35" uuid="c919d2c0-32a1-4b1e-9e22-0d24a619fe4d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="191" width="76" height="35" uuid="678bde2d-49bf-429a-8cee-ecfee9a49a45"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="76" y="191" width="214" height="35" uuid="92fef9c4-01a4-4d80-b359-ccb61d4638cd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="156" width="66" height="35" uuid="1bcb61cf-7ba0-44be-94b1-0215685a47c3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[AREA EVALUADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="191" width="55" height="35" uuid="5f4907e9-7ab9-49e4-b00d-a10d1fd67a1f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[VEREDA/PREDIO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="374" y="156" width="57" height="35" uuid="70b12eb7-8156-4343-9a50-53ad7ba9c65a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="156" width="51" height="35" uuid="c48b5920-c5c5-454a-b795-68f53be76ff3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[No. Muestras]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="431" y="156" width="124" height="35" uuid="3ec8295f-d190-46ed-93ac-139c363eb6b5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="226" width="76" height="36" uuid="9eab25b2-1f98-4b2f-b15f-d39eae66f732"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="226" width="64" height="36" uuid="edaf2d6c-a71b-4e92-80b9-bf2187aa263a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Código de la muestra]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="76" y="226" width="91" height="36" uuid="3d1ae38c-272b-4fef-8a07-5e95862a154d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="167" y="226" width="98" height="36" uuid="32f6abab-90e5-48c2-b46c-b13cbb775282"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="226" width="80" height="36" uuid="51a16246-ed31-4428-9c5a-43e4c278315d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="345" y="226" width="110" height="36" uuid="68c717d7-da11-43f6-b51b-ce89142a9fb4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="92" y="230" width="58" height="34" uuid="f888a377-ade9-4635-8fb1-64e92d465f7c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Punto de muestreo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="228" width="67" height="32" uuid="1771c149-b797-41f8-8783-13ad5fad5e1f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de recolección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="230" width="64" height="32" uuid="bbdc5a15-2dff-4ec6-a41c-1e25f0851003"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora de recolección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="226" width="97" height="34" uuid="0cec7420-e14a-49ab-a954-2798f4b6bddd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Tipo de muestra 
+(C-T)*]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="455" y="226" width="100" height="36" uuid="bd0aa3b3-ca60-4a14-97b4-2432278ca0b2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="466" y="230" width="68" height="32" uuid="400d41ea-d55f-4edf-9561-1198f75a380f"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Vol. de muestra [ml]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="193" width="104" height="33" uuid="877d3187-0b0d-495e-80b6-1272ccbdd0b2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Análisis solicitado  
+(FQ-MI**)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="394" y="191" width="161" height="35" uuid="28edff6a-29d9-4f7f-8e40-071492b8d466"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="262" width="76" height="22" uuid="824fd08e-a82e-418d-93f6-d02317d65404"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="76" y="262" width="91" height="22" uuid="3c3ef7b6-5d6e-46ed-9c1d-cc28ed78bcf9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="167" y="262" width="98" height="22" uuid="a17bf1d0-6ed0-4f3e-b904-1528d139adb1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="262" width="80" height="22" uuid="2aa8d539-aea2-4180-bdf9-93dbb33f2814"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="345" y="262" width="110" height="22" uuid="ff96542c-6b64-4b7f-9362-22506f3ba6f6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="455" y="262" width="100" height="22" uuid="a72e82c6-5219-47b2-b4bd-8ee1e22fd0fb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="316" width="221" height="20" uuid="d9922002-669d-496a-8d7a-32c1b704636a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[* C: cruda T: tratada; **FQ: Fisicoquímico  MI: Microbiológico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="284" width="76" height="32" uuid="84284e20-abd4-4ea2-ab99-4fbb98cc1492"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Obs. De la muestra]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="76" y="284" width="479" height="32" uuid="8241a81a-e023-4521-bd14-6a1a8afe2019"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="336" width="186" height="20" uuid="064c4807-7290-41fa-982c-a452bd76d2e8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Responsable de la toma de muestra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="356" width="555" height="77" uuid="cbf59d3f-d63f-46cd-86c4-fac16cbc5d2d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CONDICIONES BAJO LAS CUALES SE OTORGA EL SERVICIO
+Cláusula 1: Los análisis se realizan bajo las condiciones ambientales  de temperatura y humedad relativa del Laboratorio Fisicoquímico y Microbiológico (LFQM). Las muestras se conservan y se almacenan de acuerdo al procedimiento respectivo.
+Cláusula 2: La toma y envío de la muestra es responsabilidad del cliente.
+Cláusula 3: El LFQM cuenta con el personal, equipos, recursos físicos y tiempo necesarios para la ejecución del trabajo solicitado.
+Cláusula 4: Los resultados se entregan en un tiempo estimado de 8 días hábiles en los horarios de atención al público.  Dependiendo del número de muestras y los análisis requeridos el tiempo puede aumentar.  El cliente tiene 10 días hábiles luego de la entrega del Informe de resultados para presentar reclamos.
+Cláusula 5: El Informe de resultados se entrega una vez se reciba el comprobante de pago del servicio.
+Cláusula 6: El LFQM se rige por disposiciones legales vigentes y según los estatutos del CGAO.
+Cláusula 7: En caso de surgir cambios en la solicitud aprobada se realiza un acuerdo entre el laboratorio y el cliente.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="12" width="555" height="21" uuid="2b5e3f9f-2605-4365-aaba-d2775ccfc5ad"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="12" width="555" height="21" backcolor="#CCCCCC" uuid="5498a01a-6cbc-49fb-a01a-f8cb858424b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL SOLICITANTE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="433" width="555" height="21" uuid="94c7ee75-4809-480f-be86-c8f16b2eeb1f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="433" width="555" height="20" uuid="94145455-85dc-415c-bed1-505de22d3f3d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECEPCIÓN EN LABORATORIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="454" width="123" height="27" uuid="1fea3188-1f7f-4e3f-8600-eaa282469660"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Medio de recepción de la muestra 
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="453" width="75" height="28" uuid="c31caca7-c8b3-412b-a31d-b58ceba86d9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de recepción: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="481" width="75" height="25" uuid="ade63907-331d-4eab-9902-0970c49a227e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora de recepción:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="436" y="454" width="119" height="27" uuid="b3442d56-a693-4486-9f81-98c8263a9952"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="436" y="481" width="119" height="25" uuid="ab3a47a5-a999-4f30-bb43-55b240d0ae15"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="123" y="454" width="235" height="27" uuid="0ef57f86-c659-4ac9-a29d-d6294dda4d40"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="506" width="65" height="34" uuid="cc80da81-85a1-41ef-8cd1-e4e412c4aa4b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="123" y="481" width="235" height="25" uuid="42debb86-2737-470b-aa68-d5d0b76c714f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="481" width="123" height="25" uuid="af5f6ef8-47fa-45f0-964c-91ae305e8c39"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="506" width="121" height="34" uuid="72e4ab3f-8f20-4bdc-a22d-2fe808fb672d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="480" width="94" height="26" uuid="0fe9220e-9cfc-430b-95f1-3bdec099f43a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Recibió(Nombre de la persona):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="508" width="41" height="32" uuid="971e3502-710c-4360-a1e7-1eafaf1058aa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Cargo:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="186" y="506" width="67" height="34" uuid="f9885d72-04da-49a8-81c2-2216408e5ccb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="253" y="506" width="105" height="34" uuid="86c305b0-01cb-4957-bf4a-cc199d1aa92e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="188" y="508" width="65" height="32" uuid="80c49fdb-cac7-49d6-af11-31cba34db4d5"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Código de la muestra]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="358" y="506" width="78" height="34" uuid="f62a157f-075f-4e1f-9adf-7bdd84857f85"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="369" y="508" width="67" height="32" uuid="3f314e8e-4aee-4afe-a459-a30e5c5904de"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Preservación ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="436" y="506" width="119" height="34" uuid="92832e4b-192e-4e1e-bd8c-bd42e7d9dc93"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="540" width="240" height="15" uuid="014fdf6f-d6a5-4e8f-9b02-c68bec38e641"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descripción de las condiciones de la muestra]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="554" width="277" height="42" uuid="9068a638-9023-414a-9515-38fa04717752"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="274" y="596" width="105" height="30" uuid="62c4009d-5c3d-4113-885a-d430ce7a3c90"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="596" width="105" height="30" uuid="394c9f09-d1e4-472c-978f-5909f1404f39"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="105" y="596" width="172" height="30" uuid="46d8898a-ab57-4952-a195-9bdb86ceb198"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="380" y="596" width="175" height="30" uuid="c8777741-d05a-4416-a353-0685efa696ff"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="290" y="596" width="86" height="30" uuid="ac1c9d9c-81c7-4d2f-9dcc-55961164b109"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total de muestras recibidas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="596" width="95" height="30" uuid="d11cf0a7-f512-4c3e-9325-1743b4b3cf4b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[No. DE REPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="540" width="253" height="15" uuid="98d1c6a7-e19d-48e4-b3c4-18e15c4596ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descripción de las condiciones de la muestra]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="277" y="540" width="278" height="14" uuid="bed56e91-4ef0-4b1d-8b48-7d458e921d33"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="277" y="554" width="278" height="42" uuid="7a934459-97b9-43fb-8e89-7468891521a5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="290" y="539" width="240" height="15" uuid="4075de34-1a9c-4c76-abb1-a996c608be5f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[OBSERVACIONES O ADICIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="636" width="555" height="22" uuid="7ad49bb1-b090-42b0-a6f0-c4735660d740"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DECLARO CONOCER Y ACEPTO LAS CONDICIONES RELACIONADAS CON LA PRESTACIÓN DEL SERVICIO POR PARTE DEL LABORATORIO FISICOQUÍMICO Y MICROBIOLÓGICO DEL CENTRO DE GESTIÓN AGROEMPRESARIAL DEL ORIENTE-CGAO (VÉLEZ, SANTANDER)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="626" width="195" height="20" uuid="22256681-70db-4612-a0d5-18ac150bf64f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[APROBACIÓN POR PARTE DEL CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="690" width="200" height="23" uuid="89724af3-45b9-4e10-92ba-abe525bf98b7"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL CLIENTE O REPRESENTANTE
+No. De Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="689" width="253" height="24" uuid="53daff88-2490-4dce-bffe-e51bbc667afb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[FIRMA DEL RESPONSABLE DE REGISTRAR LA MUESTRA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="690" width="240" height="1" uuid="462d084a-9a8d-4852-940a-75cb7fdebea6"/>
+			</line>
+			<line>
+				<reportElement x="300" y="689" width="253" height="1" uuid="432a203b-9e3c-46eb-9774-509cf78f5c59"/>
+			</line>
+			<textField>
+				<reportElement x="140" y="33" width="155" height="26" uuid="809aa6d6-89e6-42d9-88d0-5f4894999ad6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="59" width="156" height="24" uuid="ce155eef-839f-448b-8e79-6a31fe282a7d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="84" width="155" height="24" uuid="6932d582-da04-4e6d-845b-64cc8b3fa29f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="108" width="156" height="27" uuid="a1310b82-9357-4eba-8e4f-92ece442f400"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="59" width="159" height="24" uuid="c6a4fc2f-7f9f-4d7b-90a1-d30c3e4871ca"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="33" width="159" height="26" uuid="39cf20ad-cb7b-45a3-a653-353a544f2c5e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nitcc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="109" width="159" height="26" uuid="04dc7641-63a9-44d7-adce-265b6783be97"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="84" width="159" height="24" uuid="b7784a01-d392-413c-80ee-6af5e1882353"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="156" width="282" height="35" uuid="a9dd82eb-6bd5-4520-9f26-1deb83bdb81b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{area_evaluada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="193" width="198" height="33" uuid="d64113e8-4f62-46ba-9c74-9463d7588066"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vereda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="158" width="114" height="33" uuid="ddfa8174-fbfe-4b00-8566-fa20e42f742d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{num_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="264" width="66" height="20" uuid="268a205e-ed67-4f08-8dd8-ab3cf2b62efe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="262" width="75" height="20" uuid="49b67277-668f-4443-8ce1-491abbc3826e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{punto_muest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="190" width="143" height="36" uuid="7185c356-f1be-4065-ac94-5084edaf3505"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{analisis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="262" width="91" height="20" uuid="6ce7da85-46d9-4c67-9197-2c7ca9be6959"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha_recolec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="263" width="73" height="20" uuid="57e3fffa-4f5c-4dae-83d6-3de232cf2e4d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hora_recolec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="260" width="97" height="23" uuid="d7873f58-e2c1-486e-a73d-3f5131385eea"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipo_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="262" width="87" height="20" uuid="d2cd0a50-3b02-447d-b846-0bedbea94353"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{volumen_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="284" width="461" height="32" uuid="db434a8e-45b4-4591-9195-4fea94ba6602"/>
+				<textFieldExpression><![CDATA[$F{obsmuestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="336" width="354" height="20" uuid="9a02d2ba-7b71-478e-918b-8b126c3ef8a8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{repons_toma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="457" width="219" height="24" uuid="99636b55-79c6-44a3-8760-91df648a61f0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{medio_recep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="457" width="100" height="23" uuid="023d5aad-ca87-4cf0-80ff-9bd33481a15b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha_recep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="509" width="110" height="30" uuid="d670d97f-92ee-45a9-842d-0a7a19b191a6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cargo_lab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="482" width="98" height="24" uuid="a830f136-a78d-41ae-a36b-5bc4030a307c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hora_recep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="596" width="159" height="30" uuid="71a5b7b5-5657-4986-a126-a268cbde7907"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="509" width="112" height="30" uuid="25be6ab3-b64a-49b8-aebd-d5d939867161"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{preservacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="554" width="264" height="42" uuid="562fbfc0-8645-407c-bb52-b800c178d75e"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{descrip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="482" width="218" height="24" uuid="38482aec-e493-47d6-8342-4e483dab7eda"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recibio_muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="556" width="270" height="40" uuid="bc7e8cef-53a1-47c8-91b8-a22d9853fa29"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{obs_adicionales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="596" width="156" height="30" uuid="f839d6a3-fd0f-487d-a80d-9cbf4b344c42"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{num_reporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="507" width="97" height="32" uuid="8e847491-b8c7-46f4-9aed-3849e71d01c5"/>
+				<textFieldExpression><![CDATA[$F{codigo_muestra}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="temperatura_subreport1" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ad388496-40f8-4c7f-a5d4-f341620f1e6f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="toma" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter1" class="java.util.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter2" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT
+     temp."noreporte" AS temp_noreporte,
+     temp."tempmax" AS temp_tempmax,
+     temp."tempmin" AS temp_tempmin,
+     temp."tempp" AS temp_tempp,
+     temp."templm" AS temp_templm,
+     temp."templmn" AS temp_templmn,
+     temp."finicio" AS temp_finicio,
+     temp."ffin" AS temp_ffin,
+     temp."obser" AS temp_obser,
+     temp."tipodetoma" AS temp_tipodetoma,
+     temp."identificacion" AS temp_identificacion
+FROM
+     "public"."temp" temp
+WHERE
+     tipodetoma = '$P!{toma}'
+ AND temp.finicio >='$P!{parameter1}' AND temp.ffin <='$P!{parameter2}']]>
+	</queryString>
+	<field name="temp_noreporte" class="java.lang.Integer"/>
+	<field name="temp_tempmax" class="java.lang.String"/>
+	<field name="temp_tempmin" class="java.lang.String"/>
+	<field name="temp_tempp" class="java.lang.String"/>
+	<field name="temp_templm" class="java.lang.String"/>
+	<field name="temp_templmn" class="java.lang.String"/>
+	<field name="temp_finicio" class="java.lang.String"/>
+	<field name="temp_ffin" class="java.lang.String"/>
+	<field name="temp_obser" class="java.lang.String"/>
+	<field name="temp_tipodetoma" class="java.lang.String"/>
+	<field name="temp_identificacion" class="java.lang.String"/>
+	<group name="temp_tempmax">
+		<groupExpression><![CDATA[$F{temp_tempmax}]]></groupExpression>
+	</group>
+	<group name="temp_tempmin">
+		<groupExpression><![CDATA[$F{temp_tempmin}]]></groupExpression>
+	</group>
+	<group name="temp_tempp">
+		<groupExpression><![CDATA[$F{temp_tempp}]]></groupExpression>
+	</group>
+	<group name="temp_templm">
+		<groupExpression><![CDATA[$F{temp_templm}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="22" width="80" height="20" uuid="80460d56-db8f-4dd7-bd14-6a39bc9f8e9c"/>
+				<text><![CDATA[Temperatura M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="22" width="87" height="20" uuid="e883103a-bdb5-4a02-906c-911de4e1ee94"/>
+				<text><![CDATA[Temperatura Mn]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="22" width="84" height="20" uuid="fc59bc90-f192-4eeb-a679-d5046c08c9df"/>
+				<text><![CDATA[Temperatura P]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="22" width="100" height="20" uuid="66ec2a3a-ba15-4e65-ace9-5397c4c638d6"/>
+				<text><![CDATA[Fecha de la toma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="22" width="100" height="20" uuid="7c4a0be1-cf96-44e9-a1bd-e0f8f1b03a9b"/>
+				<text><![CDATA[Observacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="471" y="22" width="100" height="20" uuid="508102e0-7c44-4158-bf4b-16a2b12b7508"/>
+				<text><![CDATA[Tipo de toma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="22" width="110" height="20" uuid="f6453d92-7bbd-4a65-b7f5-1ea655ac9e9d"/>
+				<text><![CDATA[Fecha fin de la toma]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="220" y="0" width="28" height="15" uuid="c3ce9d44-45f3-4c36-adab-eb7e915c9519"/>
+				<textFieldExpression><![CDATA[$F{temp_tempmax}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yy">
+				<reportElement x="10" y="0" width="100" height="15" uuid="645fb2e7-7409-47fe-b715-cbfccc1140af"/>
+				<textFieldExpression><![CDATA[$F{temp_finicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="571" y="0" width="193" height="15" uuid="5fefaa50-c2de-44e9-9c0b-90822e92d027"/>
+				<textFieldExpression><![CDATA[$F{temp_obser}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="100" height="15" uuid="9bfd1940-d654-4408-8f39-07243ce2aca9"/>
+				<textFieldExpression><![CDATA[$F{temp_tipodetoma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="15" uuid="b1ce463a-a9a1-4fcf-bfb2-b35a3ecde097"/>
+				<textFieldExpression><![CDATA[$F{temp_ffin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="0" width="28" height="15" uuid="6d07255f-a5d1-4ba2-8cd8-c1a0aa59d48e"/>
+				<textFieldExpression><![CDATA[$F{temp_tempp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="33" height="15" uuid="8ca49fc3-5c36-4669-a7a0-0cddda40f928"/>
+				<textFieldExpression><![CDATA[$F{temp_tempmin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

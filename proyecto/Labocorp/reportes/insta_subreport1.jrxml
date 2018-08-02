@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="insta_subreport1" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="42a1c0da-99a6-41f0-8ed3-8106e6c99ad8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     usuario."identificacion" AS usuario_identificacion,
+     usuario."nombresus" AS usuario_nombresus,
+     usuario."apellidous" AS usuario_apellidous,
+     usuario."direccion" AS usuario_direccion,
+     usuario."email" AS usuario_email,
+     usuario."telefono" AS usuario_telefono,
+     usuario."sexo" AS usuario_sexo,
+     usuario."cargo" AS usuario_cargo,
+     usuario."usuario" AS usuario_usuario,
+     usuario."contrasena" AS usuario_contrasena,
+     usuario."rol" AS usuario_rol,
+     usuario."tipo" AS usuario_tipo
+FROM
+     "public"."usuario" usuario
+WHERE usuario. identificacion = '$P!{id}']]>
+	</queryString>
+	<field name="usuario_identificacion" class="java.lang.String"/>
+	<field name="usuario_nombresus" class="java.lang.String"/>
+	<field name="usuario_apellidous" class="java.lang.String"/>
+	<field name="usuario_direccion" class="java.lang.String"/>
+	<field name="usuario_email" class="java.lang.String"/>
+	<field name="usuario_telefono" class="java.lang.String"/>
+	<field name="usuario_sexo" class="java.lang.String"/>
+	<field name="usuario_cargo" class="java.lang.String"/>
+	<field name="usuario_usuario" class="java.lang.String"/>
+	<field name="usuario_contrasena" class="java.lang.String"/>
+	<field name="usuario_rol" class="java.lang.String"/>
+	<field name="usuario_tipo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="39" y="37" width="119" height="20" uuid="2e0723ee-ef83-4be7-a9ec-69105df9150c"/>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="37" width="114" height="20" uuid="e80e3f14-4cd5-41a9-b5dd-e6d19b39e017"/>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="37" width="110" height="20" uuid="fd355733-1e25-4070-92b4-468a61fa59b5"/>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="37" width="100" height="20" uuid="8287b9fb-10d3-4d80-b8ca-6a86363d0748"/>
+				<text><![CDATA[Correo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="17" width="443" height="20" uuid="45bccee7-6d03-483b-a452-636922523bef"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Encargado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="0" width="119" height="20" uuid="24b3bcca-493f-4506-857c-588353aeed22"/>
+				<textFieldExpression><![CDATA[$F{usuario_nombresus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="114" height="20" uuid="327920d0-c2ce-45e3-957c-aaf98df5a991"/>
+				<textFieldExpression><![CDATA[$F{usuario_apellidous}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="110" height="20" uuid="44402685-7dd9-4230-873d-17f54e3a5ec9"/>
+				<textFieldExpression><![CDATA[$F{usuario_cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="0" width="100" height="20" uuid="2f1c64f8-11d4-4ab0-a1f1-f3697ed19381"/>
+				<textFieldExpression><![CDATA[$F{usuario_email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
